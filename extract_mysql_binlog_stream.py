@@ -1,3 +1,6 @@
+# Important Notice: This script requires the user
+# to have the appropriate permissions.
+# SUPER or REPLICATION CLIENT
 from pymysqlreplication import BinLogStreamReader
 from pymysqlreplication import row_event
 import configparser

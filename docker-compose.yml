@@ -8,3 +8,12 @@ services:
       - ./common.env
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  mysql:
+    image: mysql
+    ports:
+      - 5433:5432
+    env_file:
+      - ./common.env
+    volumes:
+      - ./mysql-volume:/var/lib/mysql

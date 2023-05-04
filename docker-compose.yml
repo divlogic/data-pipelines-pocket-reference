@@ -12,7 +12,7 @@ services:
   mysql:
     image: mysql
     ports:
-      - 5433:5432
+      - 3306:3306
     env_file:
       - ./common.env
     volumes:

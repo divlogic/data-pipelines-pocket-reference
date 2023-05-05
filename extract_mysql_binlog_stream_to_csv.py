@@ -37,8 +37,8 @@ b_stream = BinLogStreamReader(
 order_events = []
 
 for binlogevent in b_stream:
-    for row in binlogevent.rows:
-        if binlogevent.table == 'Orders':
+    for row in binlogevent.rows:  # type: ignore
+        if binlogevent.table == 'Orders':  # type: ignore
             event = {}
             if isinstance(binlogevent, row_event.DeleteRowsEvent):
                 event['action'] = 'delete'

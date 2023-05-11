@@ -47,7 +47,7 @@ for binlogevent in b_stream:
                 event['action'] = 'update'
                 event.update(row['after_values'].items())
             elif isinstance(binlogevent, row_event.WriteRowsEvent):
-                event['action'] = 'instert'
+                event['action'] = 'insert'
                 event.update(row['values'].items())
             order_events.append(event)
 b_stream.close()

@@ -13,13 +13,13 @@ dag = DAG(
 
 extract_orders_task = BashOperator(
     task_id='extract_order_data',
-    bash_command='python /p/extract_orders.py',
+    bash_command='cd ~/projects/data-pipelines-pocket-reference/ && python extract_postgresql_full.py',
     dag=dag
 )
 
 extract_customers_task = BashOperator(
     task_id='extract_customer_data',
-    bash_command='python /p/extract_customers.py',
+    bash_command='',
     dag=dag
 )
 

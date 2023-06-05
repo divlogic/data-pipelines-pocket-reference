@@ -5,7 +5,7 @@ import configparser
 
 def connect_to_warehouse():
     # get db connection parameters from the conf file
-    parser = configparser.ConfigParser()
+    parser = configparser.ConfigParser(interpolation=None)
     parser.read('pipeline.conf')
     dbname = parser.get('aws_creds', 'database')
     user = parser.get('aws_creds', 'user')

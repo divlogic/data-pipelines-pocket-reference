@@ -4,21 +4,22 @@ import configparser
 import psycopg2
 
 # get db Redshift connection info
-parser = configparser.ConfigParser()
+parser = configparser.ConfigParser(interpolation=None)
 parser.read("pipeline.conf")
 dbname = parser.get("aws_creds", "database")
-user = parser.get("aws_creds", "username")
+user = parser.get("aws_creds", "user")
 password = parser.get("aws_creds", "password")
 host = parser.get("aws_creds", "host")
 port = parser.get("aws_creds", "port")
 
 # connect to the redshift cluster
 rs_conn = psycopg2.connect(
-    "dbname=" + dbname
-    + " user=" + user
-    + " password=" + password
-    + " host=" + host
-    + " port=" + port)
+    dbname=dbname,
+    user=user,
+    password=password,
+    host=host,
+    port=port
+)
 
 rs_sql = """SELECT COALESCE(MAX(id),-1)
             FROM dag_run_history;"""
